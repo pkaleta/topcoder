@@ -1,0 +1,106 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-2">
+
+
+<title>Instalacja TopCodera - Jakub Radoszewski</title>
+</head><body bgcolor="lime">
+<h1 align="center">Instalacja TopCodera</h1>
+
+<p>Niniejszy dokument zawiera poradnik jak:
+</p><ul>
+  <li>ściągnąć i zainstalować Java Web Start,</li>
+  <li>zainstalować pakiet pluginów: FileEdit, CodeProcessor i TZTester,</li>
+  <li>skonfigurować FileEdita,</li>
+  <li>używać linuksowego środowiska TopCoderowego.</li>
+</ul><p></p>
+
+<p>Niniejszy dokument nie zawiera poradnika jak:
+</p><ul>
+<li>Rozpocząć zabawę z kategorią algorytmiczną TopCodera (zakładam, że Czytelnik
+wie o co chodzi w rozwiązywaniu zadań kategorii algorytmicznej),</li>
+<li>Uczestniczyć w zawodach innych niż algorytmiczne TopCodera.</li>
+</ul>
+<p></p>
+
+<h2>Java Web Start</h2>
+<p>Jest potrzebna (a co najmniej dostateczna), aby uruchamiać arenę TopCodera.</p>
+
+<ul>
+<li>Wchodzimy na stronę <a href="http://java.sun.com/javase/downloads/index.jsp">Java Sun</a>
+i ściągamy Java Runtime Environment (J2RE) wersja PRZED 1.5 (np. 1.4.2.12 - trzeba wyszukać w starszych wersjach);
+JRE - najmniej pamięciożerny rodzaj Javy.
+JRE w wersji 1.4.2.12 można także ściągnąć <a href="http://www.mimuw.edu.pl/%7Ejrad/j2re-1_4_2_12-linux-i586.bin">stąd</a>.</li>
+<li>Wykonujemy ściągnięty plik, z użyciem wpisania jednego "yes" po drodze tworzy on katalog z Javą,</li>
+<li>Przenosimy powstały katalog do /usr/src/,</li>
+<li>Przy uruchamianiu areny TopCoderowej wybieramy czym ją uruchomić: inny program=/usr/src/j2re.../javaws/javaws.</li>
+</ul>
+<p>Powinna uruchomić się Arena.</p>
+
+<h2>Pluginy (FileEdit + CodeProcessor + TZTester)</h2>
+<p>Pozwalają w wygodny sposób pisać pod Linuksem programy w Twoim ulubionym edytorze (np. Vim),
+używać gdb itd., a na koniec łatwo wysłać program w arenie.</p>
+
+<ul>
+<li>Wchodzimy do areny, wybieramy losowego practise rooma z SRM,</li>
+<li>Wchodzimy w arenie do menu Tools podmenu plugins,</li>
+<li>Ściągamy z nowootwartej strony przeglądarki 3 .jar-y z ww. pluginami
+do jakiegoś katalogu, którego nie postanowimy nigdy wyrzucić,</li>
+<li>Wchodzimy w arenie do menu Options podmenu editor,</li>
+<li>Wybieramy opcję Add,</li>
+<li>Wpisujemy: name=CodeProcessor, entry point=codeprocessor.EntryPoint, path wyszukujemy po kolei
+ścieżki do KAŻDEGO Z: CodeProcessor, FileEdit, TZTester, po czym akceptujemy dodanie edytora,</li>
+<li>Zaznaczamy okienko default przy CodeProcessor,</li>
+<li>Robimy Configure na CodeProcessorze,</li>
+<li>UWAGA (wtręt): odtąd okienka które sią otwierają nie pojawiają się na pasku zadań,
+więc trzeba je znajdować jakimś Alt+Tabem, jeżeli się z nich wyjdzie,</li>
+<li>Wpisujemy entry point=fileedit.EntryPoint, processor class=tangentz.TZTester,</li>
+<li>Robimy verify; powinno się pojawić okienko z 3*found,</li>
+<li>Robimy save+close w obu okienkach po kolei i przelogowujemy się w arenie (menu Main przycisk logoff).</li>
+</ul>
+
+<h2>Konfiguracja FileEdita</h2>
+
+<p>Pozostaje jeszcze tylko skonfigurować ustawienia naszego plugina.</p>
+
+<ul>
+<li>Wchodzimy w arenie do menu Options podmenu editor,</li>
+<li>Robimy Configure na CodeProcessorze, a tam Configure na FileEdicie,</li>
+<li>Wypełniamy directory i najlepiej odznaczamy backupa (po to, że jeżeli zadanie otworzymy
+ponownie i mamy już jakiś jego kod na dysku, to żeby tego kodu nie nadpisywał ani nie backupował),</li>
+<li>Przechodzimy do zakładki Code Template; wybieramy język np. C++,</li>
+<li>Przeklejamy tam plik <a href="http://www.mimuw.edu.pl/%7Ejrad/temp.cpp">Mój template</a> albo jakiś podobny (w moim
+pliku jest instrukcja jego tworzenia i wyjaśnienie),</li>
+<li><b>Nowość!!!</b> <a href="http://www.mimuw.edu.pl/%7Ejrad/temp_linux.cpp">Tutaj</a> można pobrać wersję
+template'a pod Linuksa (modyfikacja autorstwa Marka Cygana), w której nie trzeba się
+martwić zerowaniem zmiennych globalnych.
+Program dla każdego testu z osobna się forkuje, dzięki czemu zmienne
+globalne są zawsze w stanie dziewiczym.
+Dla uruchomienia na danym teście przykładowym (a dokładniej od niego wzwyż),
+należy jego numer podać jako parametr wywołania (przydatne do debugowania
+w gdb na przykład),
+</li><li>Robimy wszędzie save+close, przelogowujemy się.</li>
+</ul>
+
+<h2>Sprawdzamy że działa</h2>
+
+<p>Wszystko gotowe, zobaczmy czy pakiet pluginów działa!</p>
+
+<ul>
+<li>Wybieramy w practise roomie losowy SRM i losowe zadanie,</li>
+<li>Otwiera się treść, a pod nią wiadomość, gdzie zapisał plik,</li>
+<li>Otwieramy plik, kodujemy gdzie trzeba rozwiązanie; pamiętamy, że
+o ile użyjemy standardowej wersji template'a kodu (nie tej specjalnej
+pod Linuksa), to TZTester uruchomi program kolejno na wszystkich testach,
+więc w takim wypadku należy wszystkie zmienne globalne wyzerować,</li>
+<li>Kompilujemy i uruchamiamy; przy każdym teście przykładowym jest informacja,
+czy nasz program go przeszedł (jeżeli wynikiem są double, to może ona być niemiarodajna)
+i jakie były jego i poprawna odpowiedzi jeżeli go nie przeszedł,</li>
+<li>Debugujemy i działa,</li>
+<li>Wracamy do areny, robimy Save, Compile i Submit,</li>
+<li>Możemy jeszcze: przetestować coś sobie w Test, jeżeli chcemy sprawdzić dokładność doubla czy
+czas działania na serwerze; jeżeli chcemy ponownie wysłać zmieniony kod, musimy go
+zachować i skompilować ponownie.</li>
+</ul>
+
+<h3 align="center">"Best of luck to you in the Arena!"</h3>
+
+</body></html>

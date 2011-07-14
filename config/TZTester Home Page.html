@@ -1,0 +1,300 @@
+
+<!-- saved from url=(0071)http://www.topcoder.com/contest/classes/TZTester/TZTester.html#Template -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>
+        TZTester Home Page
+    </title>
+<script name="TM_internal">(function TM_mother() { var EMV = false;
+var TS = false;
+var Converter = 
+(function(){var a={};(function(){function i(f){return f<10?"0"+f:f
+}if(typeof Date.prototype.toJSON!=="function"){Date.prototype.toJSON=function(f){return isFinite(this.valueOf())?this.getUTCFullYear()+"-"+i(this.getUTCMonth()+1)+"-"+i(this.getUTCDate())+"T"+i(this.getUTCHours())+":"+i(this.getUTCMinutes())+":"+i(this.getUTCSeconds())+"Z":null
+};String.prototype.toJSON=Number.prototype.toJSON=Boolean.prototype.toJSON=function(f){return this.valueOf()
+}}var h=/[\u0000\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,k=/[\\\"\x00-\x1f\x7f-\x9f\u00ad\u0600-\u0604\u070f\u17b4\u17b5\u200c-\u200f\u2028-\u202f\u2060-\u206f\ufeff\ufff0-\uffff]/g,l,g,n={"\b":"\\b","\t":"\\t","\n":"\\n","\f":"\\f","\r":"\\r",'"':'\\"',"\\":"\\\\"},m;
+function e(f){k.lastIndex=0;return k.test(f)?'"'+f.replace(k,function(o){var p=n[o];
+return typeof p==="string"?p:"\\u"+("0000"+o.charCodeAt(0).toString(16)).slice(-4)
+})+'"':'"'+f+'"'}function j(u,r){var p,o,w,f,s=l,q,t=r[u];
+if(t&&typeof t==="object"&&typeof t.toJSON==="function"){t=t.toJSON(u)
+}if(typeof m==="function"){t=m.call(r,u,t)}switch(typeof t){case"string":return e(t);
+case"number":return isFinite(t)?String(t):"null";case"boolean":case"null":return String(t);
+case"object":if(!t){return"null"}l+=g;q=[];if(Object.prototype.toString.apply(t)==="[object Array]"){f=t.length;
+for(p=0;p<f;p+=1){q[p]=j(p,t)||"null"}w=q.length===0?"[]":l?"[\n"+l+q.join(",\n"+l)+"\n"+s+"]":"["+q.join(",")+"]";
+l=s;return w}if(m&&typeof m==="object"){f=m.length;
+for(p=0;p<f;p+=1){if(typeof m[p]==="string"){o=m[p];
+w=j(o,t);if(w){q.push(e(o)+(l?": ":":")+w)}}}}else{for(o in t){if(Object.prototype.hasOwnProperty.call(t,o)){w=j(o,t);
+if(w){q.push(e(o)+(l?": ":":")+w)}}}}w=q.length===0?"{}":l?"{\n"+l+q.join(",\n"+l)+"\n"+s+"}":"{"+q.join(",")+"}";
+l=s;return w}}if(typeof a.stringify!=="function"){a.stringify=function(q,o,p){var f;
+l="";g="";if(typeof p==="number"){for(f=0;f<p;f+=1){g+=" "
+}}else{if(typeof p==="string"){g=p}}m=o;if(o&&typeof o!=="function"&&(typeof o!=="object"||typeof o.length!=="number")){throw new Error("JSON.stringify")
+}return j("",{"":q})}}if(typeof a.parse!=="function"){a.parse=function(q,f){var p;
+function o(u,t){var s,r,w=u[t];if(w&&typeof w==="object"){for(s in w){if(Object.prototype.hasOwnProperty.call(w,s)){r=o(w,s);
+if(r!==undefined){w[s]=r}else{delete w[s]}}}}return f.call(u,t,w)
+}q=String(q);h.lastIndex=0;if(h.test(q)){q=q.replace(h,function(r){return"\\u"+("0000"+r.charCodeAt(0).toString(16)).slice(-4)
+})}if(/^[\],:{}\s]*$/.test(q.replace(/\\(?:["\\\/bfnrt]|u[0-9a-fA-F]{4})/g,"@").replace(/"[^"\\\n\r]*"|true|false|null|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?/g,"]").replace(/(?:^|:|,)(?:\s*\[)+/g,""))){p=window["eval"]("("+q+")");
+return typeof f==="function"?o({"":p},""):p}throw new SyntaxError("JSON.parse")
+}}}());var d=a;var c={encode:function(f){f=f.replace(/\r\n/g,"\n");
+var e="";for(var h=0;h<f.length;h++){var g=f.charCodeAt(h);
+if(g<128){e+=String.fromCharCode(g)}else{if((g>127)&&(g<2048)){e+=String.fromCharCode((g>>6)|192);
+e+=String.fromCharCode((g&63)|128)}else{e+=String.fromCharCode((g>>12)|224);
+e+=String.fromCharCode(((g>>6)&63)|128);e+=String.fromCharCode((g&63)|128)
+}}}return e},decode:function(e){var g="";var j=0;var k=0;
+var h=0;var f=0;while(j<e.length){k=e.charCodeAt(j);
+if(k<128){g+=String.fromCharCode(k);j++}else{if((k>191)&&(k<224)){h=e.charCodeAt(j+1);
+g+=String.fromCharCode(((k&31)<<6)|(h&63));j+=2}else{h=e.charCodeAt(j+1);
+f=e.charCodeAt(j+2);g+=String.fromCharCode(((k&15)<<12)|((h&63)<<6)|(f&63));
+j+=3}}}return g}};var b={encString:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",encStringS:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_",encode:function(w,z,f){if(z==undefined){z=false
+}if(arguments.length<1){return null}var u=new Array();
+if(arguments.length>=3&&f!=true&&f!=false){return null
+}var r=(arguments.length>=3&&f)?b.encStringS:b.encString;
+var x=(typeof w=="string");if(!x&&(typeof w!="object")&&!(w instanceof Array)){return null
+}if(z!=true&&z!=false){return null}var e=(!x||!z)?1:2;
+var q="";var v=0;var p=1;var h=0;var y=0;for(var t=0;
+t<w.length;t++){v=(x)?w.charCodeAt(t):w[t];for(var o=e-1;
+o>=0;o--){u[o]=v&255;v>>=8}for(var g=0;g<e;g++){h=((h<<8)&65280)|u[g];
+y=(63<<(2*p))&h;h-=y;q+=r.charAt(y>>(2*p));p++;if(p==4){q+=r.charAt(h&63);
+p=1}}}switch(p){case 2:y=63&(16*h);q+=r.charAt(y);q+="==";
+break;case 3:y=63&(4*h);q+=r.charAt(y);q+="=";break;
+default:break}return q},decode:function(e,h,n,g){if(arguments.length<1){return null
+}if(arguments.length<2){h=1}if(h!=0&&h!=1&&h!=2){return null
+}if(arguments.length>=3&&n!=true&&n!=false){return null
+}var r=(arguments.length>=3&&n)?b.encStringS:b.encString;
+if(arguments.length>=4&&g!=true&&g!=false){return null
+}var m=new Object();for(var q=0;q<r.length;q++){m[r.charAt(q)]=q
+}var x=(h==0)?new Array():"";g=(arguments.length==4&&g);
+var s=0;var w=0;var v=0;var A=0;var t=0;var f=e.length;
+var o="";if(g){var y="";var z=false;var u=0;for(var q=1;
+q<=e.length;q++){A=e.charAt(f-q);if(A=="="){if(!z){if(++u>1){z=true
+}}else{continue}}else{if(undefined!=m[A]){if(!z){z=true
+}y=A+y}}}for(var q=0;q<=u;q++){if(q==2){return null
+}if((y.length+u)%4==0){break}}if(y.length%4==1){return null
+}e=y;f=e.length}else{if(e.length%4>0){return null}for(var q=0;
+q<2;q++){if(e.charAt(f-1)=="="){f--}else{break}}}for(w=0;
+w<f;w++){s<<=6;if(undefined==(A=m[e.charAt(w)])){return null
+}s|=(A&63);if(v==0){v++;continue}if(h==2){if(t==1){x+=String.fromCharCode(s>>(2*(3-v)));
+s&=~(65535<<(2*(3-v)))}t=++t%2}else{if(h==0){x.push(s>>(2*(3-v)))
+}else{x+=String.fromCharCode(s>>(2*(3-v)))}s&=~(255<<(2*(3-v)))
+}v=++v%4}if(h==2&&t==1){return null}return x}};return{UTF8:c,Base64:b,JSON:d,encodeUE:function(e){return escape(c.encode(e))
+},decodeUE:function(e){return c.decode(unescape(e))
+},encode:function(e){return escape(e)},decode:function(e){return unescape(e)
+},encodeUB:function(e){return btoa(c.encode(e))},decodeUB:function(e){return c.decode(atob(e))
+},encodeR:function(e){return e},decodeR:function(e){return e
+}}})();;
+var TMwin = { backup: {} };
+var TMJSON = JSON;
+var console = window['console'];
+var JSON = window['JSON'];
+function JSONcheck() {
+        if (!JSON.parse || JSON.parse != 'function parse() { [native code] }') {
+              if (TMJSON && TMJSON.parse == 'function parse() { [native code] }') {
+                  JSON = TMJSON;
+                  console.log('page: use JSON backup');
+              } else {
+                  JSON = Converter.JSON;
+                  console.log('page: use JSON fallback');
+              }
+        } else if (EMV) { 
+            console.log('page: JSON is fine');
+        }
+};
+JSONcheck();
+function eventHandler(evt) {
+    try {
+        if (EMV) console.log('page: Event received 4919383965' + evt.attrName);
+        var j = JSON.parse(Converter.decodeR(evt.attrName));
+        try {
+            eval(j)
+            if (TS) console.log('page: it took ' + ((new Date()).getTime() - evt.timeStamp)  + ' ms to process this event -> ' + j.substr(0, 80));
+        } catch (e) {
+            console.log('page: Error: processing event! ' + JSON.stringify(e) + ' ' + j);
+        }
+        j = ''
+    } catch (e) {
+        console.log('page: Error: retrieving event! ' + JSON.stringify(e) + ' ' + evt.attrName);
+    }
+    evt.attrName = '';
+};
+document.addEventListener('TM_exec4919383965', eventHandler, false);
+function cleanup(evt) {
+    document.removeEventListener('TM_exec4919383965', eventHandler, false);
+    if (EMV) console.log('page: cleanup of 4919383965! ');
+    window.removeEventListener('unload', cleanup, false);
+    delete TMJSON;
+    delete TMwin;
+    delete Converter;
+    delete TS;
+    delete EMV;
+};
+window.addEventListener('unload', cleanup, false);
+
+console.log('page: listener installed')})();</script></head>
+
+<body>
+    <center>
+        <h1>TZTester</h1>
+    </center>
+
+    <p>
+    TZTester is a CodeProcessor plug-in that automatically extracts the examples
+    test cases given in the problem description and generates C++ code that runs
+    the test cases.  Programmers no longer need to manually type in the test
+    cases in the test dialog box.  The plug-in is designed to work with either
+    PopsEdit or FileEdit.  If you use other editors, you may need to adapt
+    accordingly.
+    </p>
+
+    <p>
+    My TopCoder handle is "TangentZ".
+    </p>
+
+    <ul>
+        <li><a href="http://www.topcoder.com/contest/classes/TZTester/TZTester.html#Installation">Installation</a>
+        </li><li><a href="./TZTester Home Page_files/TZTester Home Page.html">Template</a>
+        </li><li><a href="http://www.topcoder.com/contest/classes/TZTester/TZTester.html#Usage">Usage</a>
+        </li><li><a href="http://www.topcoder.com/contest/classes/TZTester/TZTester.html#History">History</a>
+    </li></ul>
+
+    <hr>
+
+    <p>
+    <a name="Installation">
+        </a></p><h2><a name="Installation">Installation</a></h2><a name="Installation">
+    </a>
+
+    <pre>    0. Download CodeProcessor 1.2 (or higher) if not already
+    1. Follow the installation instructions of CodeProcessor
+    2. Add TZTester.jar (the location of the JAR) to the ClassPath
+    3. Use "popsedit.EntryPoint" or "fileedit.EntryPoint" (or another editor that you use) as the Editor
+    4. Use "tangentz.TZTester" as CodeProcessor name
+    5. Restart the Contest Arena applet
+    6. Click on "Verify" to make sure all 3 methods are found
+    7. Configure your editor template (See <a href="./TZTester Home Page_files/TZTester Home Page.html">Template Examples</a>)
+    8. Go to any practice room and open a problem to make sure everything is in place
+    9. Happy coding!
+    </pre>
+    <p></p>
+
+    <hr>
+
+    <p>
+    <a name="Template">
+        </a></p><h2><a name="Template">Template Examples</a></h2><a name="Template">
+    </a>
+    <p></p>
+
+    <p>
+    TZTester defines two internal tags to determine where to put the generated code.
+    </p><p>
+
+    </p><ul>
+        <li>$RUNTEST$ - This should be placed somewhere inside the method that the system
+            tester calss.  The tag generates a line of code that drives the whole testing engine
+
+        </li><li>$TESTCODE$ - This should be placed within the class but outside the method you
+            are writing.  This tag generates the code that contains arguments from all the given examples.
+    </li></ul>
+
+    <p>
+    If you use PopsEdit, you may use this template:
+    </p>
+
+    <pre>    class $CLASSNAME$
+        {
+        public:
+        $RC$ $METHODNAME$($METHODPARMS$)
+            {
+            $RUNTEST$
+            $CARETPOSITION$
+            }
+        // end of $METHODNAME$
+
+        $TESTCODE$
+        };
+    // end of $CLASSNAME$
+    </pre>
+
+    <p>
+    If you use FileEdit, you may use this template instead (thanks to pewloo):
+    </p>
+
+    <pre>    class $CLASSNAME$
+        { 
+        public: 
+        $RC$ $METHODNAME$($METHODPARMS$) 
+            { 
+            $CARETPOSITION$ 
+            } 
+        $TESTCODE$ 
+        }; 
+
+    // BEGIN CUT HERE 
+    int main()
+        {
+        $CLASSNAME$ ___test; 
+        ___test.run_test(-1); 
+        } 
+    // END CUT HERE 
+    </pre>
+
+    <p>
+    Notice that run_test() is called directly in main() and there is no need for the $RUNTEST$ tag.
+    </p>
+
+    <hr>
+
+    <p>
+    <a name="Usage">
+        </a></p><h2><a name="Usage">Usage</a></h2><a name="Usage">
+    </a>
+    <p></p>
+
+    <p>
+    TZTester generates one public member function and several private member functions for testing purposes.
+    </p>
+
+    <ul>
+        <li><b>run_test</b>(int <i>Case</i>) - This is the test driver function.  The <i>Case</i>
+            argument controls which test case to run (0,1,2,3...etc).  Use -1 if you want all cases
+            to be run (the default).  It is <i>public</i>.
+
+        </li><li><b>verify_case</b>(int <i>Case</i>) - This function compares the expected and received
+            results and outputs the appropriate diagnostics to <b>cerr</b>.  It is <i>private</i>.
+
+        </li><li><b>test_case_0</b>(), <b>test_case_1</b>(), <b>test_case_2</b>()...etc - These correspond
+            to the example test cases.  They are <i>private</i>.
+    </li></ul>
+
+    <p>
+    Keep in mind that all test cases are run from within the function that system tester uses.
+    A local static variable is used to prevent infinite recursion (if using PopsEdit).  If you
+    find that all test cases cannot run within the 8 second time limit, you may want to run
+    each test individually by changing the argument to <b>run_test</b>().
+    </p>
+
+    <p>
+    Also, TZTester does no do any "code cutting".  You probably want to manually cut out the test
+    code before submitting to the Contest Applet.  Note that if TZTester did any "code cutting",
+    then the Contest Applet will never see the test code, rendering it useless to PopsEdit users.
+    </p>
+
+    <hr>
+
+    <p>
+    <a name="History">
+        </a></p><h2><a name="History">History</a></h2><a name="History">
+    </a>
+    <p></p>
+
+    <pre>    [Version 1.01 - 25 Feb 2003]
+
+    - Made run_test() a public member function (suggestion from pewloo)
+    - Changed to use FileEdit cut tags
+
+    [Version 1.00 - 18 Feb 2003]
+
+    - Initial Version
+    - Tested with PopsEdit and problems from SRM 120+
+    </pre>
+
+
+
+</body></html>
