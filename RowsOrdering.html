@@ -1,0 +1,33 @@
+<html><body bgcolor="#000000" text="#ffffff"><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td>You are given a table where each row contains exactly M columns, numbered 0 through M-1.  Each value in the table is an integer between 1 and 50, inclusive.  Each row of the table is distinct, and the table contains all possible distinct rows.  Two rows are considered distinct if there is at least one column where the rows have a different value.  Hence, the table contains exactly 50^M rows.
+<br></br><br></br>
+The rows of the table can be sorted using the following scheme:
+<ol>
+<li>First, for each column, assign a permutation of all the integers between 1 and 50, inclusive.  Note that this permutation may differ for each column.</li>
+<li>Next, pick a permutation of all M columns.</li>
+<li>Finally, sort the rows in ascending order.  Compare each pair of rows as follows:
+<ol>
+<li>Consider the first column in the permutation chosen in step 2.  Compare the values in both rows in this column.</li>
+<li>If the values in this column are the same in both rows, check the values in the next column in the permutation instead.  Repeat this until the values for the chosen column are different.</li>
+<li>The row which contains the value that comes earlier in the permutation chosen in step 1 for this column is considered to be smaller than the other row.</li>
+</ol></li></ol>
+You are given a vector &lt;string&gt; <b>rows</b> that contains a description of several rows of the table described above. Each element represents a single row and contains exactly M characters. The i-th character in each element represents the value in column i for that row and is one of the following letters:
+<ul>
+<li>'a'-'z' corresponds to values 1-26</li>
+<li>'A'-'X' corresponds to values 27-50</li>
+</ul>
+For each of the given rows, define P as the 1-based index of that row in a table sorted as described above. For any given ordering, where an ordering is defined by the permutations chosen in steps 1 and 2 above, define S as the sum of all P for the given rows. Find the minimum possible value of S and return it modulo 1,000,000,007.</td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>RowsOrdering</td></tr><tr><td>Method:</td><td>order</td></tr><tr><td>Parameters:</td><td>vector &lt;string&gt;</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int order(vector &lt;string&gt; rows)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td>&#160;&#160;&#160;&#160;</td></tr><tr><td></td></tr><tr><td colspan="2"><h3>Notes</h3></td></tr><tr><td align="center" valign="top">-</td><td>The number that you should minimize is the number before the modulo and not after the modulo. That is, 1,000,000,010 is larger than 20 even though 1,000,000,010 modulo 1,000,000,007 = 3 &lt; 20.</td></tr><tr><td align="center" valign="top">-</td><td>Duplicate elements are allowed in <b>rows</b>. In case <b>rows</b> contains C > 1 occurrences of a certain row, the value of P for this row must be added towards S for C times (see example 4).</td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>rows</b> will contain between 1 and 50 elements, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>rows</b> will contain between 1 and 50 characters, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>All the elements of <b>rows</b> will contain the same number of characters.</td></tr><tr><td align="center" valign="top">-</td><td>Each character in <b>rows</b> will be either 'a'-'z' or 'A'-'X'.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;bb&quot;, &quot;cb&quot;, &quot;ca&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 54</pre></td></tr><tr><td><table><tr><td colspan="2">One possible ordering is as follows:
+<br></br><br></br>
+For the first column, choose the permutation {c, b, ...}.<br></br>
+For the second column, choose the permutation {b, a, ...}.<br></br>
+Then, choose the permutation {1, 0} for the columns.
+<br></br><br></br>
+The rows will then be indexed as follows:
+<br></br>"cb" = 1
+<br></br>"bb" = 2
+<br></br>...
+<br></br>"ca" = 51
+<br></br>"ba" = 52
+<br></br>...
+<br></br>
+<br></br>
+The sum is 1+2+51 = 54.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;abcd&quot;, &quot;ABCD&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 127553</pre></td></tr><tr><td><table><tr><td colspan="2">Lowercase and uppercase letters are considered distinct.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;Example&quot;, &quot;Problem&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 943877448</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;, &quot;g&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 28</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{&quot;a&quot;, &quot;a&quot;}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 2</pre></td></tr><tr><td><table><tr><td colspan="2">Duplicate elements are allowed. The value of P for each such element should be added towards S separately.</td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
